@@ -56,7 +56,8 @@ namespace qiyubrother
 
             System.Reflection.MethodInfo mi = t.GetMethod(methodName);
             //注：method.Invoke(o, null)返回的是一个Object,如果你服务端返回的是DataSet,这里也是用(DataSet)method.Invoke(o, null)转一下就行了,method.Invoke(0,null)这里的null可以传调用方法需要的参数,string[]形式的
-            return (string)mi.Invoke(obj, args);
+            //return (string)mi.Invoke(obj, args);
+            return mi.Invoke(obj, args).ToString();
         }
 
         public static object GetObject(string url)

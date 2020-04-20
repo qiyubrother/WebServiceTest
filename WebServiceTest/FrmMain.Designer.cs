@@ -44,6 +44,7 @@
             this.txtParameter6 = new System.Windows.Forms.TextBox();
             this.txtParameter5 = new System.Windows.Forms.TextBox();
             this.txtResult = new System.Windows.Forms.TextBox();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -189,14 +190,26 @@
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(506, 201);
+            this.txtResult.Size = new System.Drawing.Size(506, 181);
             this.txtResult.TabIndex = 14;
+            // 
+            // btnHelp
+            // 
+            this.btnHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHelp.Location = new System.Drawing.Point(458, 327);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(60, 23);
+            this.btnHelp.TabIndex = 15;
+            this.btnHelp.Text = "Help";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 570);
+            this.ClientSize = new System.Drawing.Size(530, 551);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.txtParameter8);
             this.Controls.Add(this.txtParameter7);
@@ -239,6 +252,7 @@
         private System.Windows.Forms.TextBox txtParameter6;
         private System.Windows.Forms.TextBox txtParameter5;
         private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
 

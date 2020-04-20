@@ -31,38 +31,38 @@ namespace WebServiceTest
 
         private void btnCall_Click(object sender, EventArgs e)
         {
-            var lstParameters = new List<string>();
+            var lstParameters = new List<object>();
             if (txtParameter1.Text != string.Empty)
             {
-                lstParameters.Add(txtParameter1.Text);
+                lstParameters.Add(ParseParameter(txtParameter1.Text));
             }
             if (!txtParameter2.ReadOnly && txtParameter2.Text != string.Empty)
             {
-                lstParameters.Add(txtParameter2.Text);
+                lstParameters.Add(ParseParameter(txtParameter2.Text));
             }
             if (!txtParameter3.ReadOnly && txtParameter3.Text != string.Empty)
             {
-                lstParameters.Add(txtParameter3.Text);
+                lstParameters.Add(ParseParameter(txtParameter3.Text));
             }
             if (!txtParameter4.ReadOnly && txtParameter4.Text != string.Empty)
             {
-                lstParameters.Add(txtParameter4.Text);
+                lstParameters.Add(ParseParameter(txtParameter4.Text));
             }
             if (!txtParameter5.ReadOnly && txtParameter5.Text != string.Empty)
             {
-                lstParameters.Add(txtParameter5.Text);
+                lstParameters.Add(ParseParameter(txtParameter5.Text));
             }
             if (!txtParameter6.ReadOnly && txtParameter6.Text != string.Empty)
             {
-                lstParameters.Add(txtParameter6.Text);
+                lstParameters.Add(ParseParameter(txtParameter6.Text));
             }
             if (!txtParameter7.ReadOnly && txtParameter7.Text != string.Empty)
             {
-                lstParameters.Add(txtParameter7.Text);
+                lstParameters.Add(ParseParameter(txtParameter7.Text));
             }
             if (!txtParameter8.ReadOnly && txtParameter8.Text != string.Empty)
             {
-                lstParameters.Add(txtParameter8.Text);
+                lstParameters.Add(ParseParameter(txtParameter8.Text));
             }
             try
             {
@@ -74,6 +74,37 @@ namespace WebServiceTest
                 MessageBox.Show(ex.Message);
                 txtResult.Clear();
             }
+        }
+
+        private object ParseParameter(string param)
+        {
+            var p = param.ToLower();
+            if (p.StartsWith("integer:"))
+            {
+                var v = p.Substring(8);
+                int.TryParse(v, out int number);
+                return number;
+            }
+            else if (p.StartsWith("double:"))
+            {
+                var v = p.Substring(7);
+                double.TryParse(v, out double number);
+                return number;
+            }
+            else if (p.StartsWith("string:"))
+            {
+                var v = p.Substring(7);
+                return v;
+            }
+            else
+            {
+                return p;
+            }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            new FrmHelp().ShowDialog();
         }
     }
 }
